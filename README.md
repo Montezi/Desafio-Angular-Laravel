@@ -1,4 +1,4 @@
-# Desafio-CRUD-Angular-Laravel
+# Desafio-Angular-Laravel
 
    Este Desafio consistia em construir um CRUD  de Militares com as seguintes condições:
    
