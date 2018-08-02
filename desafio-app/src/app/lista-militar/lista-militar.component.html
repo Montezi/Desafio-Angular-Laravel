@@ -1,0 +1,48 @@
+<!doctype html>
+<div class="container">
+  <br/><br/>
+  <div class="row">
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4">
+      <button  [routerLink]="['/cadastro']" class="btn btn-primary ">Adicionar Militar</button>
+    </div>
+
+  </div>
+  <br/>
+  <div>
+    <h3 class="text-center"> Listar Militares </h3>
+    <p class="text-center">{{ msg }}</p>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nome</th>
+          <th scope="col">Data Nascimento</th>
+          <th scope="col">Identidade</th>
+          <th scope="col">Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let militar of militares">
+          <td> {{militar.id}} </td>
+          <td>{{militar.nome}} </td>
+          <td> {{militar.data_nascimento}} </td>
+          <td> {{militar.identidade}} </td>
+          <td>
+            <div class="row">
+              <div class="col-md-3">
+                 <button (click)="excluiCadastro(militar.id)" class="btn btn-danger btn-sm align-left">Excluir</button>
+               </div>
+               <div class="col-md-3">
+                 <button (click)="editMilitar(militar.id)" class="btn btn-primary btn-sm align-right">Alterar</button>
+               </div>
+             </div>
+         </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

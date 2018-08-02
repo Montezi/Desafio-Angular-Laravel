@@ -1,0 +1,32 @@
+<!doctype html>
+
+  <nav class="navbar navbar-dark bg-primary">
+
+      <a class="navbar-brand"[routerLink]="['/']">Desafio </a>
+          <ul class="nav justify-content-end">
+          <li class="nav-item" *ngIf="existeUsuario()"[routerLinkActive]="['active']">
+            <a class="nav-link text-light" [routerLink]="['/home']">Home</a>
+          </li>
+          <li class="nav-item"*ngIf="!existeUsuario()"[routerLinkActive]="['active']">
+            <a class="nav-link text-light" [routerLink]="['/login']">Login</a>
+          </li>
+          <li class="nav-item" *ngIf="!existeUsuario()" [routerLinkActive]="['active']">
+            <a class="nav-link text-light" [routerLink]="['/usuario']"> Usuário novo ? </a>
+          </li>
+          <li class="nav-item" *ngIf="existeUsuario()"[routerLinkActive]="['active']">
+            <a class="nav-link text-light" [routerLink]="['/cadastro']">Cadastro Militar</a>
+          </li>
+
+          <li class="nav-item" *ngIf="existeUsuario()"[routerLinkActive]="['active']">
+            <a class="nav-link text-warning"> Bem vindo {{nomeUsuario}}</a>
+          </li>
+          <li class="nav-item" *ngIf="existeUsuario()"[routerLinkActive]="['active']">
+            <a class="nav-link text-sucess" (click)="logout()">Logout</a>
+          </li>
+
+        </ul>
+  </nav>
+
+
+
+  <router-outlet></router-outlet>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<div class="container">
+  <br/>
+  <h3 class="text-center"> Cadastro de Militares </h3>
+  <p class="text-center">{{ msg }}</p>
+  <div>
+
+    <form class="form-horizontal">
+      <div class="form-group">
+        <label for="nome">Nome:</label>
+        <input id="nome" name="nome" class="form-control" [(ngModel)]="militar.nome" aria-label="Large" aria-describedby="inputGroup-sizing-sm" required >
+      </div>
+      <div class="form-group">
+        <label for="dt_nasc">Data de Nascimento:</label>
+        <input id="dt_nasc" name="dt_nasc" type="text"[(ngModel)]="militar.dataNascimento" placeholder="yyyy-mm-dd" class="form-control here" required >
+      </div>
+      <div class="form-group">
+        <label for="posto_graduacao">Posto Graduação:</label>
+        <div>
+          <select id="posto_graduacao" name="posto_graduacao" [(ngModel)]="militar.patente" class="custom-select" (change)="verificaPatente()" required="required" aria-describedby="posto_graduacaoHelpBlock">
+
+            <option *ngFor="let patente of patentes" value="{{patente.id}}">
+              {{patente.descricao}}
+              </option>
+          </select>
+          <span id="posto_graduacaoHelpBlock" class="form-text text-muted">Selecione o Posto Graduação do Militar</span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Serviço Militar Obrigatório?</label>
+        <div>
+          <label class="custom-control custom-radio">
+            <input name="radio"  id="sim" type="radio" [(ngModel)]="militar.svObrigatorio" class="custom-control-input"  value="1"/>
+            <span class="custom-control-indicator"></span>
+            <span class="custom-control-description">Sim</span>
+          </label>
+          <label class="custom-control custom-radio">
+            <input name="radio"  id="nao" type="radio" [(ngModel)]="militar.svObrigatorio" class="custom-control-input" value="0" />
+            <span class="custom-control-indicator"></span>
+            <span class="custom-control-description">Não</span>
+          </label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="identidade">Identidade:</label>
+        <input id="identidade" name="identidade" type="text" [(ngModel)]="militar.identidade" class="form-control here"required="required">
+      </div>
+
+      <div class="form-group">
+        <button (click)="addCadastro()" class="btn btn-primary">Salvar</button>
+      </div>
+    </form>
+
+  </div>
+
+</div>
